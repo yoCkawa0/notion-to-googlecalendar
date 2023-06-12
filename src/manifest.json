@@ -1,0 +1,11 @@
+{
+  "name": "notion-to-googlecal",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "make events for notion-task",
+  "permissions": ["activeTab", "nativeMessaging"],
+  "host_permissions": ["https://script.google.com/macros/s/*"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
