@@ -1,7 +1,7 @@
 const task_id = document.getElementById("taskId");
 let google_url = "google app script url";
 let origin_id = '';
-const regex = /\bv=([a-f0-9]+)\b/;
+const regex = /\bp=([a-f0-9]+)\b/;
 
 document.getElementById("btn").onclick = () => {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
