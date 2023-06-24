@@ -1,7 +1,18 @@
 const task_id = document.getElementById("taskId");
-let google_url = "google app script url";
+let google_url = "your google apps scripts url";
 let origin_id = '';
 const regex = /\bp=([a-f0-9]+)\b/;
+
+chrome.tabs.query( {active:true, currentWindow:true}, (tabs) => {
+    chrome.tabs.sendMessage(tabs[0].id, {message: 'getname'}, (content) => {
+        if(!content){
+            alert('Cannot Get! Try Reload First!');
+            return;
+        }
+        document.getElementById('taskId').value = content
+    });
+});
+
 
 document.getElementById("btn").onclick = () => {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
