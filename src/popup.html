@@ -1,8 +1,33 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        width: 400px;
+        height: 100px;
+      }
+    </style>
+  </head>
   <body>
-    <input type="text" name="" id="taskId">
-    <button id="btn">Run</button>
+    <div class="container py-3">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter task ID"
+          id="taskId"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" id="btn">
+            Run
+          </button>
+        </div>
+      </div>
+    </div>
     <script src="popup.js"></script>
   </body>
 </html>

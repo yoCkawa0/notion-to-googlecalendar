@@ -3,7 +3,7 @@
   "version": "1.1",
   "manifest_version": 3,
   "description": "make events for notion-task",
-  "permissions": ["activeTab", "nativeMessaging"],
+  "permissions": ["storage", "activeTab"],
   "host_permissions": ["https://script.google.com/macros/s/*"],
   "action": {
     "default_popup": "popup.html",
