@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -10,10 +11,31 @@
         width: 400px;
         height: 100px;
       }
+      .results {
+        margin: 10px 10px auto;
+        width: 100%;
+        text-align: center;
+      }
+      .results button {
+        margin: auto;
+        width: 70%;
+      }
+      .results p{
+        width: 90%;
+        margin-top: 20px;
+        margin: 20px 10px 10px;
+        color: #666; /* Lighter color */
+        font-size: 14px; /* Smaller font size */
+        opacity: 0.7;
+        word-wrap: break-word;
+      }
+      #closeButton {
+        display: none;
+      }
     </style>
   </head>
   <body>
-    <div class="container py-3">
+    <div class="container py-3 ">
       <div class="input-group mb-3">
         <input
           type="text"
@@ -22,9 +44,12 @@
           id="taskId"
         />
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" id="btn">
+          <button class="btn btn-primary" type="button" id="btn">
             Run
           </button>
+        </div>
+        <div class="results">
+          <button type="button" id="closeButton" class="btn btn-success">CLOSE</button>
         </div>
       </div>
     </div>
