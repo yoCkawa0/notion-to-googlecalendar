@@ -1,3 +1,15 @@
+let google_url ="";
+let origin_id = "";
+const regex = /\bp=([a-f0-9]+)\b/;
+const p = document.createElement("p");
+p.setAttribute("class", "result-message");
+const closeButton = document.getElementById("closeButton");
+
+if (google_url === "") {
+  alert("URL for GAS is empty. Please set the URL in the options page.");
+  throw new Error("google_url is empty");
+}
+
 document.addEventListener("DOMContentLoaded", (event) => {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     chrome.tabs.sendMessage(tabs[0].id, { message: "getDomValue" });
@@ -10,9 +22,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 });
 
-let google_url = "";
-let origin_id = "";
-const regex = /\bp=([a-f0-9]+)\b/;
+closeButton.addEventListener("click", () => {
+  window.close();
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   const task_id = document.getElementById("taskId");
@@ -30,9 +42,20 @@ document.addEventListener("DOMContentLoaded", () => {
         origin_id = url.substring(dashIndex + 1);
       }
       // create request url
+      let taskid = document.getElementById("taskId").value;
       google_url += "?originId=" + origin_id + "&taskId=" + task_id.value;
-      alert(google_url);
-      // send request
+
+      taskid = "📝 Created Event";
+      p.innerHTML =
+        "TaskID : <b>" +
+        taskid +
+        "</b>" +
+        "\n" +
+        google_url +
+        "<br>にリクエストを送信しました";
+      closeButton.before(p);
+      closeButton.style.display = "initial";
+
       fetch(google_url, {
         method: "GET",
         mode: "cors",
